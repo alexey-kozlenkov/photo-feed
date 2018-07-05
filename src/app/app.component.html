@@ -1,6 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div *ngFor="let title of titles; let index = index; let odd = odd;" style="text-align:center">
-  <h1 *ngIf="!odd">
-    {{ index }} Welcome to {{ title }}!
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title + 100 }}!
   </h1>
+  <img
+      src="https://media.giphy.com/media/9lJY94PtuDDj2/giphy.gif"
+      (click)="omImageClick($event)"
+  />
 </div>

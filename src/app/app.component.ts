@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  titles = Array(10).fill('Photo Feed #nitro #3000');
+  title = 'Photo Fed #nitro #3000';
+
+
+  omImageClick() {
+    console.log('click');
+  }
 }
