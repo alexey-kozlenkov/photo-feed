@@ -1,10 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title + index }}!
+    Welcome to {{ title }}!
   </h1>
-  <img
-      src="https://media.giphy.com/media/9lJY94PtuDDj2/giphy.gif"
-      (click)="omImageClick($event)"
-  />
 </div>
+
+<app-photo-post
+  [title]="photoPost.title"
+  [description]="photoPost.description"
+  [(like)]="photoPost.liked"
+></app-photo-post>
