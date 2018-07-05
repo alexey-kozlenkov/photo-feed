@@ -6,10 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  index = 0;
+
   title = 'Photo Fed #nitro #3000';
 
-
   omImageClick() {
-    console.log('click');
+    this.index += 1;
   }
 }
