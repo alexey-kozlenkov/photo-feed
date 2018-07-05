@@ -2,18 +2,8 @@
   <h3>{{ title }}</h3>
   <img src="https://media.giphy.com/media/9lJY94PtuDDj2/giphy.gif" />
   <p>{{ description }}</p>
-  <button (click)="onLike()">
-    {{ like ? 'Dis-like' : 'Like' }}
-  </button>
-
-  <select>
-    <ng-container *ngFor="let rate of rates; let odd = odd;">
-      <ng-container *ngIf="odd">
-        <option>
-            {{ rate }}
-        </option>
-      </ng-container>
-    </ng-container>
-  </select>
+  <span (click)="onLike()">
+    {{ like | like }}
+  </span>
 
 </div>

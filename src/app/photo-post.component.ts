@@ -11,8 +11,6 @@ export class PhotoPostComponent {
 
   @Output() likeChange = new EventEmitter<boolean>();
 
-  rates = [0, 1, 2, 3, 4, 5];
-
   onLike() {
     this.likeChange.emit(!this.like);
   }
