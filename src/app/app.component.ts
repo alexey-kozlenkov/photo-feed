@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  post = {
+    title: 'Post 1',
+    description: 'Much post',
+    liked: false,
+  };
+
+  onPostLiked(liked: boolean) {
+    console.log(liked);
+    this.post.liked = liked;
+  }
 }
