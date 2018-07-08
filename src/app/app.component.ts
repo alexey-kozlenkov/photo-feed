@@ -9,7 +9,7 @@ import { db } from 'db';
 })
 export class AppComponent {
 
-  post = db.posts[0];
+  posts = db.posts;
 
   onPostLiked(liked: boolean) {
     console.log(liked);
