@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PhotoPost } from './types';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
 
-  post = {
+  post: PhotoPost = {
     title: 'Post 1',
     description: 'Much post',
+    photoUrl: 'https://media.giphy.com/media/mW05nwEyXLP0Y/giphy.gif',
+    createdAt: 0,
+    author: 'John Doe',
     liked: false,
   };
 
