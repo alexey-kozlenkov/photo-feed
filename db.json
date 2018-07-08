@@ -1,7 +1,7 @@
 {
   "posts": [
     {
-      "id": 1,
+      "id": 0,
       "title": "Post 1",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id neque id turpis faucibus laoreet sit amet ac dolor. Curabitur a ligula quis ipsum fermentum efficitur. Fusce quis augue porttitor, euismod purus sit amet, luctus enim. Aliquam ut ex leo. Duis nec nunc nec orci mollis condimentum quis eget magna. Sed scelerisque lorem tellus, a scelerisque eros euismod nec. Duis diam lorem, placerat ac dolor iaculis, lacinia sagittis ante. Cras nisi eros, consequat eget elementum quis, feugiat vitae enim. Phasellus aliquet eros et placerat tempor. Ut tincidunt ut erat ut efficitur.",
       "photoUrl": "https://media.giphy.com/media/mW05nwEyXLP0Y/giphy.gif",
