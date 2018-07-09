@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { PhotoPostComponent } from './photo-post/photo-post.component';
 import { PhotoPostFeedComponent } from './photo-post-feed/photo-post-feed.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { PhotoPostFeedComponent } from './photo-post-feed/photo-post-feed.compon
     PhotoPostFeedComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
