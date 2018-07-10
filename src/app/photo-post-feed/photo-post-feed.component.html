@@ -1,0 +1,4 @@
+<app-photo-post-component *ngFor="let post of posts"
+  [photoPost]="post"
+  (liked)="onPostLiked($event, post.id)"
+></app-photo-post-component>

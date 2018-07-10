@@ -4,6 +4,7 @@ import { PhotoPost } from '../types';
 @Component({
   selector: 'app-photo-post-component',
   templateUrl: './photo-post.component.html',
+  styleUrls: ['./photo-post.component.css']
 })
 export class PhotoPostComponent {
   @Input() photoPost: PhotoPost;

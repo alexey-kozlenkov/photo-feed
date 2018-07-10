@@ -1,6 +1,10 @@
-<div>
+<div class="post">
   <h3>{{ photoPost.title }}</h3>
+  <img [src]="photoPost.photoUrl" appZoomImg  />
   <p>{{ photoPost.description }}</p>
-  <img [src]="photoPost.photoUrl" />
-  <button (click)="onLiked()">{{ photoPost.liked ? 'Dis-like' : 'Like' }}</button>
+  <div class="meta">
+    <span>{{ photoPost.createdAt | date }}</span>
+    <span>{{ photoPost.author }}</span>
+    <button (click)="onLiked()">{{ photoPost.liked ? 'Dis-like' : 'Like' }}</button>
+  </div>
 </div>
