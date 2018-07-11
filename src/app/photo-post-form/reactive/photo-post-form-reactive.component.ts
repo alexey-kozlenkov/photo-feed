@@ -5,11 +5,11 @@ import { switchMapTo } from 'rxjs/operators';
 
 
 @Component({
-  selector: 'pf-photo-post-form-template',
-  templateUrl: './photo-post-form-template.component.html',
+  selector: 'pf-photo-post-form-reactive',
+  templateUrl: './photo-post-form-reactive.component.html',
   styleUrls: ['../photo-post-form.scss']
 })
-export class PhotoPostTemplateFormComponent implements OnInit {
+export class PhotoPostReactiveFormComponent implements OnInit {
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void { }
