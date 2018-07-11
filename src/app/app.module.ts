@@ -1,16 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import { PhotoPostComponent } from './photo-post/photo-post.component';
-import { PhotoPostFeedComponent } from './photo-post-feed/photo-post-feed.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ZoomImgDirective } from './photo-post/img-zoom.directive';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+import { PhotoPostFeedComponent } from './photo-post-feed/photo-post-feed.component';
+import { ZoomImgDirective } from './photo-post-card/img-zoom.directive';
+import { PhotoPostCardComponent } from './photo-post-card/photo-post-card.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    PhotoPostComponent,
+    PhotoPostCardComponent,
     PhotoPostFeedComponent,
     ZoomImgDirective
   ],

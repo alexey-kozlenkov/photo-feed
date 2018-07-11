@@ -2,11 +2,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { PhotoPost } from '../types';
 
 @Component({
-  selector: 'pf-post',
-  templateUrl: './photo-post.component.html',
-  styleUrls: ['./photo-post.component.css']
+  selector: 'pf-post-card',
+  templateUrl: './photo-post-card.component.html',
+  styleUrls: ['./photo-post-card.component.css']
 })
-export class PhotoPostComponent {
+export class PhotoPostCardComponent {
   @Input() photoPost: PhotoPost;
   @Output() liked = new EventEmitter<boolean>();
 
