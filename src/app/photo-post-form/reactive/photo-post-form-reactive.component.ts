@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PhotoPost } from '../../types';
 import { switchMapTo } from 'rxjs/operators';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -10,11 +11,24 @@ import { switchMapTo } from 'rxjs/operators';
   styleUrls: ['../photo-post-form.scss']
 })
 export class PhotoPostReactiveFormComponent implements OnInit {
-  constructor(private httpClient: HttpClient) { }
+
+  form: FormGroup;
+
+  constructor(
+    private httpClient: HttpClient,
+    private fb: FormBuilder
+  ) {
+    this.form = this.fb.group({
+      title: ['', Validators.required],
+      description: '',
+      photoUrl: '',
+    });
+  }
 
   ngOnInit(): void { }
 
-  onSubmit(data: Partial<PhotoPost>) {
+  onSubmit() {
+    const data: Partial<PhotoPost> = this.form.value;
     this.httpClient.post(
       `http://my-json-server.typicode.com/alexey-kozlenkov/photo-feed/posts`,
       {

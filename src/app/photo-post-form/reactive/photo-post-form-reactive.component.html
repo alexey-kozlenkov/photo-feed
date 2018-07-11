@@ -1,19 +1,19 @@
-<form #form="ngForm" (ngSubmit)="onSubmit(form.value)" class="photo-post-form">
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="photo-post-form">
   <h3>Add photo post</h3>
 
   <div class="form-field">
     <label>Title</label>
-    <input type="text" ngModel name="title" required/>
+    <input type="text" formControlName="title" />
   </div>
 
   <div class="form-field">
     <label>Description</label>
-    <textarea ngModel name="description"></textarea>
+    <textarea formControlName="description"></textarea>
   </div>
 
   <div class="form-field">
     <label>Photo URL</label>
-    <input type="text" ngModel name="photoUrl" />
+    <input type="text" formControlName="photoUrl" />
   </div>
 
   <button type="submit" [disabled]="!form.valid">Submit</button>
