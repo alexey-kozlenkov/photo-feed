@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { PhotoPost } from '../types';
 
 @Component({
-  selector: 'app-photo-post-component',
+  selector: 'pf-post',
   templateUrl: './photo-post.component.html',
   styleUrls: ['./photo-post.component.css']
 })

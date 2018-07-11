@@ -1,16 +1,31 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { PhotoPost } from '../types';
 
 @Component({
-  selector: 'app-photo-post-feed',
+  selector: 'pf-feed',
   templateUrl: './photo-post-feed.component.html',
   styleUrls: ['./photo-post-feed.component.css']
 })
-export class PhotoPostFeedComponent {
-  @Input() posts: PhotoPost[];
-  @Output() postLiked = new EventEmitter<{ id: number, liked: boolean }>();
+export class PhotoPostFeedComponent implements OnInit {
+
+  posts: PhotoPost[];
+
+  constructor(private httpClient: HttpClient) {
+  }
+
+  ngOnInit(): void {
+    this.httpClient.get<PhotoPost[]>(
+      'http://my-json-server.typicode.com/alexey-kozlenkov/photo-feed/posts'
+    ).subscribe(posts => this.posts = posts);
+  }
 
   onPostLiked(liked: boolean, id: number) {
-    this.postLiked.emit({ id, liked });
+    this.httpClient.patch<PhotoPost>(
+      `http://my-json-server.typicode.com/alexey-kozlenkov/photo-feed/posts/${id}`,
+      { liked }
+    ).subscribe((updatedPost) => {
+      this.posts = this.posts.map(post => post.id === id ? updatedPost : post);
+    });
   }
 }
