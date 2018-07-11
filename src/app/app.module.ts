@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { PhotoPostFeedComponent } from './photo-post-feed/photo-post-feed.component';
 import { ZoomImgDirective } from './photo-post-card/img-zoom.directive';
 import { PhotoPostCardComponent } from './photo-post-card/photo-post-card.component';
+import { PhotoPostTemplateFormComponent } from './photo-post-form/template/photo-post-form-template.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -12,11 +14,14 @@ import { PhotoPostCardComponent } from './photo-post-card/photo-post-card.compon
     AppComponent,
     PhotoPostCardComponent,
     PhotoPostFeedComponent,
-    ZoomImgDirective
+    ZoomImgDirective,
+
+    PhotoPostTemplateFormComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

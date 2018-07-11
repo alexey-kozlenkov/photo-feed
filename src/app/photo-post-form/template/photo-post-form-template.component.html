@@ -1,0 +1,26 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form.value)" class="photo-post-form">
+  <h3>Add photo post</h3>
+
+  <div class="form-field">
+    <label>Title</label>
+    <input type="text" ngModel name="title" required/>
+  </div>
+
+  <div class="form-field">
+    <label>Description</label>
+    <textarea ngModel name="description"></textarea>
+  </div>
+
+  <div class="form-field">
+    <label>Photo URL</label>
+    <input type="text" ngModel name="photoUrl" />
+  </div>
+
+  <button type="submit" [disabled]="!form.valid">Submit</button>
+
+  <div>
+    <p>Value: {{ form.value | json }}</p>
+    <p>Status: {{ form.status | json }}</p>
+    <p>Valid: {{ form.valid | json }}</p>
+  </div>
+</form>
