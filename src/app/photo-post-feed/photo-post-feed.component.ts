@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { PhotoPost } from '../types';
+import { PhotoPostService } from './photo-post.service';
 
 @Component({
   selector: 'pf-feed',
@@ -11,21 +12,18 @@ export class PhotoPostFeedComponent implements OnInit {
 
   posts: PhotoPost[];
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private postsService: PhotoPostService) {
   }
 
   ngOnInit(): void {
-    this.httpClient.get<PhotoPost[]>(
-      'http://my-json-server.typicode.com/alexey-kozlenkov/photo-feed/posts'
-    ).subscribe(posts => this.posts = posts);
+    this.postsService.loadPosts().subscribe(
+      posts => this.posts = posts
+    );
   }
 
   onPostLiked(liked: boolean, id: number) {
-    this.httpClient.patch<PhotoPost>(
-      `http://my-json-server.typicode.com/alexey-kozlenkov/photo-feed/posts/${id}`,
-      { liked }
-    ).subscribe((updatedPost) => {
-      this.posts = this.posts.map(post => post.id === id ? updatedPost : post);
-    });
+    this.postsService.likePost(id, liked).subscribe(
+      (updatedPost) => this.posts = this.posts.map(post => post.id === id ? updatedPost : post)
+    );
   }
 }
