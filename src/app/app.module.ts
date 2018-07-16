@@ -1,12 +1,13 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PhotoPostDetailsComponent } from './photo-post-details/photo-post-details.component';
 import { ZoomImgDirective } from './photo-post-feed-card/img-zoom.directive';
 import { PhotoPostFeedCardComponent } from './photo-post-feed-card/photo-post-feed-card.component';
 import { PhotoPostFeedComponent } from './photo-post-feed/photo-post-feed.component';
-import { PhotoPostReactiveFormComponent } from './photo-post-form/reactive/photo-post-form-reactive.component';
 
 
 @NgModule({
@@ -16,12 +17,13 @@ import { PhotoPostReactiveFormComponent } from './photo-post-form/reactive/photo
     PhotoPostFeedComponent,
     ZoomImgDirective,
 
-    PhotoPostReactiveFormComponent
+    PhotoPostDetailsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    ReactiveFormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
