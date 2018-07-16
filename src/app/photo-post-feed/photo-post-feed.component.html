@@ -1,4 +1,4 @@
-<pf-post-card *ngFor="let post of posts"
+<pf-post-feed-card *ngFor="let post of posts"
   [photoPost]="post"
   (liked)="onPostLiked($event, post.id)"
-></pf-post-card>
+></pf-post-feed-card>
