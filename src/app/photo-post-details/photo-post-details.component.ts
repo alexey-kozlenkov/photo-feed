@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PhotoPostService } from '../photo-post-feed/photo-post.service';
 import { PhotoPost } from '../types';
-import { Router, ActivatedRoute } from '@angular/router';
-import { filter } from 'rxjs/operators';
 
 
 @Component({
@@ -16,28 +15,27 @@ export class PhotoPostDetailsComponent implements OnInit {
   post: Partial<PhotoPost> = {};
 
   constructor(
-    private httpClient: HttpClient,
+    private postsService: PhotoPostService,
+    private router: Router,
     private activatedRoute: ActivatedRoute
   ) {
     this.action = this.activatedRoute.snapshot.data['action'];
 
-    const id = this.activatedRoute.snapshot.params.id;
-    this.httpClient.get<PhotoPost>(`http://my-json-server.typicode.com/alexey-kozlenkov/photo-feed/posts/${id}`).pipe(
-      filter(() => this.action === 'EDIT')
-    ).subscribe(post => this.post = post);
+    if (this.action === 'EDIT') {
+      const id = this.activatedRoute.snapshot.params.id;
+      this.postsService.loadPost(id).subscribe(post => this.post = post);
+    }
   }
 
   ngOnInit(): void { }
 
   onSubmit(data: Partial<PhotoPost>) {
-    this.httpClient.post(
-      `http://my-json-server.typicode.com/alexey-kozlenkov/photo-feed/posts`,
-      {
-        ...data,
-        liked: false,
-        author: 'John Doe',
-        createdAt: Date.now()
-      }
-    ).subscribe(console.log);
+    const action$ = this.action === 'EDIT'
+      ? this.postsService.updatePost(data, this.post.id)
+      : this.postsService.addPost(data);
+
+    action$.subscribe({
+      complete: () => this.router.navigate([''])
+    });
   }
 }
